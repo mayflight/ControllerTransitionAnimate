@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CellView" customModule="TransitionAnimate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="384" height="116"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="转场动画" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2b-aE-qvR">
+                    <rect key="frame" x="10" y="10" width="73.666666666666671" height="96"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" red="0.095429681241512299" green="0.44136771559715271" blue="0.56655663251876831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否使用模态视图" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUF-Qy-7OF">
+                    <rect key="frame" x="131" y="10" width="122.66666666666666" height="96"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.57155525684356689" green="0.36455130577087402" blue="0.7382015585899353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" restorationIdentifier="CellView" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fUV-Dw-LxR">
+                    <rect key="frame" x="325" y="42.666666666666671" width="51" height="31.000000000000014"/>
+                </switch>
+            </subviews>
+            <color key="backgroundColor" red="0.97985546533999279" green="1" blue="0.84457407568083998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fUV-Dw-LxR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="1rK-7l-PDT"/>
+                <constraint firstItem="SUF-Qy-7OF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3AC-Wb-xrV"/>
+                <constraint firstAttribute="bottom" secondItem="o2b-aE-qvR" secondAttribute="bottom" constant="10" id="QgV-wk-Uwx"/>
+                <constraint firstAttribute="trailing" secondItem="fUV-Dw-LxR" secondAttribute="trailing" constant="10" id="fJ1-jf-VMY"/>
+                <constraint firstItem="o2b-aE-qvR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="hym-lA-b9y"/>
+                <constraint firstItem="o2b-aE-qvR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="ncD-Ka-jlU"/>
+                <constraint firstItem="SUF-Qy-7OF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="rFq-wu-Gfy"/>
+                <constraint firstAttribute="bottom" secondItem="SUF-Qy-7OF" secondAttribute="bottom" constant="10" id="vf2-cj-D38"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="animateName" destination="o2b-aE-qvR" id="WKM-EJ-aul"/>
+                <outlet property="useModal" destination="fUV-Dw-LxR" id="Vx9-JK-we6"/>
+            </connections>
+            <point key="canvasLocation" x="207" y="-218"/>
+        </view>
+    </objects>
+</document>
