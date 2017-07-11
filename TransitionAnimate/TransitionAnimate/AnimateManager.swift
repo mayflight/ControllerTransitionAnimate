@@ -13,11 +13,12 @@ enum TransitionAnimateType:Int {
     case scaleAlpha = 0
     case fromTop
     case toLeft
+    case fromTopLeftCorner
     static func count() -> NSInteger {
-        return 3
+        return 4
     }
     static func value(_ index:Int) -> String {
-        return ["scaleAlpha","fromTop","toLeft"][index]
+        return ["scaleAlpha","fromTop","toLeft","fromTopLeftCorner"][index]
     }
 }
 
@@ -47,6 +48,8 @@ class AnimateManager: NSObject,UIViewControllerAnimatedTransitioning,UIViewContr
             fromTop(fromView!, toView!, context: transitionContext)
         case .toLeft:
             toLeft(fromView!, toView!, context: transitionContext)
+        case .fromTopLeftCorner:
+            fromTopLeftCorner(fromView!, toView!, context: transitionContext)
         }
     }
     

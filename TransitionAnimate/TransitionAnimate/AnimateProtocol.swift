@@ -12,6 +12,7 @@ protocol AnimateProtocol {
     func scaleAlpha(_ fromView:UIView ,_ toView:UIView ,context:UIViewControllerContextTransitioning)
     func fromTop(_ fromView:UIView ,_ toView:UIView ,context:UIViewControllerContextTransitioning)
     func toLeft(_ fromView:UIView ,_ toView:UIView ,context:UIViewControllerContextTransitioning)
+    func fromTopLeftCorner(_ fromView:UIView ,_ toView:UIView ,context:UIViewControllerContextTransitioning)
 }
 
 extension AnimateProtocol {
@@ -52,6 +53,16 @@ extension AnimateProtocol {
         }) { (finished) in
             context.completeTransition(true)
         }
+    }
+    func fromTopLeftCorner(_ fromView:UIView ,_ toView:UIView ,context:UIViewControllerContextTransitioning) {
+        let frame = fromView.frame
+        toView.transform = CGAffineTransform.init(translationX: -frame.size.width, y: -frame.size.height)
+        UIView.animate(withDuration: 1, animations: {
+            toView.transform = CGAffineTransform.init(translationX: 0, y: 0)
+        }) { (finished) in
+            context.completeTransition(true)
+        }
+
     }
 }
 

@@ -15,8 +15,8 @@
             <rect key="frame" x="0.0" y="0.0" width="384" height="116"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="转场动画" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2b-aE-qvR">
-                    <rect key="frame" x="10" y="10" width="73.666666666666671" height="96"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="转场动画" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2b-aE-qvR">
+                    <rect key="frame" x="10" y="10" width="116" height="96"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <color key="textColor" red="0.095429681241512299" green="0.44136771559715271" blue="0.56655663251876831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -41,6 +41,7 @@
                 <constraint firstItem="o2b-aE-qvR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="ncD-Ka-jlU"/>
                 <constraint firstItem="SUF-Qy-7OF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="rFq-wu-Gfy"/>
                 <constraint firstAttribute="bottom" secondItem="SUF-Qy-7OF" secondAttribute="bottom" constant="10" id="vf2-cj-D38"/>
+                <constraint firstItem="SUF-Qy-7OF" firstAttribute="leading" secondItem="o2b-aE-qvR" secondAttribute="trailing" constant="5" id="wLX-8K-UFp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
