@@ -18,11 +18,14 @@ class ViewController:UITableViewController {
     let manager = AnimateManager()
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let cell = tableView.cellForRow(at: indexPath) as! CellView
         let controller = SecondViewController()
         if let value = TransitionAnimateType(rawValue:indexPath.row) {
              manager.animateType = value
         }
+        manager.time = cell.timeStepper.value
+        
         if cell.useModal.isOn {
             controller.transitioningDelegate = manager
             self.present(controller, animated: true, completion: nil)

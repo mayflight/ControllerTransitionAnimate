@@ -18,9 +18,17 @@ class CellView: UITableViewCell {
     }
     */
 
+    @IBOutlet weak var timeStepper: UIStepper!
     @IBOutlet weak var useModal: UISwitch!
     @IBOutlet weak var animateName: UILabel!
     
+    @IBOutlet weak var timeLabel: UILabel!
+    override func awakeFromNib() {
+        timeStepper.addTarget(self, action: #selector(CellView.animateTime), for: .valueChanged)
     
+    }
     
+    func animateTime() {
+        timeLabel.text = "动画时间:\(timeStepper.value)"
+    }
 }
