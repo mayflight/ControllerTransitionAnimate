@@ -16,6 +16,8 @@ enum TransitionAnimateType:Int {
     case fromTopLeftCorner
     case rotateXZ
     case dragFromRight
+    case flip
+    case rightIn
 }
 
 class AnimateManager:NSObject,UIViewControllerAnimatedTransitioning,UIViewControllerTransitioningDelegate,AnimateProtocol,UINavigationControllerDelegate{
@@ -50,6 +52,10 @@ class AnimateManager:NSObject,UIViewControllerAnimatedTransitioning,UIViewContro
             rotateXZ(fromView!, toView!, context: transitionContext)
         case .dragFromRight:
             dragFromRight(fromView!, toView!, context: transitionContext)
+        case .flip:
+            flip(fromView!, toView!, context: transitionContext)
+        case .rightIn:
+            rightIn(fromView!, toView!, context: transitionContext)
         }
     }
     

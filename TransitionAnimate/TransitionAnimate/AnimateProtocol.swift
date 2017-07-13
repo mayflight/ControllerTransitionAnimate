@@ -15,6 +15,8 @@ protocol AnimateProtocol {
     func fromTopLeftCorner(_ fromView:UIView ,_ toView:UIView ,context:UIViewControllerContextTransitioning)
     func rotateXZ(_ fromView:UIView ,_ toView:UIView ,context:UIViewControllerContextTransitioning)
     func dragFromRight(_ fromView:UIView ,_ toView:UIView ,context:UIViewControllerContextTransitioning)
+    func flip(_ fromView:UIView ,_ toView:UIView ,context:UIViewControllerContextTransitioning)
+    func rightIn(_ fromView:UIView ,_ toView:UIView ,context:UIViewControllerContextTransitioning)
     var time:TimeInterval {get set}
 }
 
@@ -94,9 +96,42 @@ extension AnimateProtocol {
             fromView.layer.transform = CATransform3DIdentity
             context.completeTransition(true)
         }
-
     }
     
+    func flip(_ fromView:UIView ,_ toView:UIView ,context:UIViewControllerContextTransitioning) {
+        toView.layer.transform = CATransform3DMakeRotation(-.pi/2, 0, 1, 0)        
+        UIView.animateKeyframes(withDuration: time, delay: 0, options: .layoutSubviews, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5, animations: {
+                fromView.layer.transform = CATransform3DMakeRotation(-.pi/2, 0, 1, 0)
+                fromView.layer.transform.m34 = -0.001
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5, animations: {
+                toView.layer.transform = CATransform3DMakeRotation(0, 0, 1, 0)
+                toView.layer.transform.m34 = -0.001
+            })
+        }) { (finished) in
+            fromView.layer.transform = CATransform3DIdentity
+            toView.layer.transform = CATransform3DIdentity
+            context.completeTransition(true)
+        }
+    }
     
+    func rightIn(_ fromView:UIView ,_ toView:UIView ,context:UIViewControllerContextTransitioning) {
+        let frame = fromView.frame
+        fromView.layer.anchorPoint = CGPoint(x:0.9, y: 0.5)
+        fromView.frame = CGRect(x: frame.size.width/2, y: 0, width: frame.size.width, height: frame.size.height)
+        
+        UIView.animate(withDuration: time, animations: {
+            var transform = CATransform3DMakeRotation(.pi/2, 0,1, 0)
+            transform.m34 = -0.001
+            fromView.layer.transform = transform
+        }) { (finished) in
+            fromView.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+            fromView.layer.transform = CATransform3DIdentity
+            fromView.frame = frame
+            context.completeTransition(true)
+        }
+
+    }
 }
 

@@ -11,10 +11,10 @@ import UIKit
 
 extension TransitionAnimateType {
     static func count() -> NSInteger {
-        return 6
+        return 8
     }
     static func value(_ index:Int) -> String {
-        return ["scaleAlpha","fromTop","toLeft","fromTopLeftCorner","rotateXZ","dragFromRight"][index]
+        return ["scaleAlpha","fromTop","toLeft","fromTopLeftCorner","rotateXZ","dragFromRight","flip","rightIn"][index]
     }
 }
 
