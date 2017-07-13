@@ -13,7 +13,7 @@ protocol GestureProtocol {
 }
 extension GestureProtocol {
     func addGesture(_ target:Any,action a:Selector,view:UIView) {
-        let recognizer = UISwipeGestureRecognizer(target:target , action: a)
+        let recognizer = UIPanGestureRecognizer(target:target , action: a)
         view.addGestureRecognizer(recognizer)
     }
 }

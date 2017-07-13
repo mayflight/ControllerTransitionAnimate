@@ -16,15 +16,9 @@ enum TransitionAnimateType:Int {
     case fromTopLeftCorner
     case rotateXZ
     case dragFromRight
-    static func count() -> NSInteger {
-        return 6
-    }
-    static func value(_ index:Int) -> String {
-        return ["scaleAlpha","fromTop","toLeft","fromTopLeftCorner","rotateXZ","dragFromRight"][index]
-    }
 }
 
-class AnimateManager: NSObject,UIViewControllerAnimatedTransitioning,UIViewControllerTransitioningDelegate,AnimateProtocol,UINavigationControllerDelegate{
+class AnimateManager:NSObject,UIViewControllerAnimatedTransitioning,UIViewControllerTransitioningDelegate,AnimateProtocol,UINavigationControllerDelegate{
     var time:TimeInterval = 1
     var animateType = TransitionAnimateType.scaleAlpha
     
@@ -67,11 +61,8 @@ class AnimateManager: NSObject,UIViewControllerAnimatedTransitioning,UIViewContr
         return self
     }
     
-    
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return self
     }
     
-    
-
 }

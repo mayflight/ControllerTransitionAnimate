@@ -52,7 +52,7 @@ extension AnimateProtocol {
     
     func toLeft(_ fromView:UIView ,_ toView:UIView ,context:UIViewControllerContextTransitioning) {
         let frame = fromView.frame
-        toView.frame = CGRect(x: 2*frame.size.width, y: 0, width: frame.size.width, height: frame.size.height)
+        toView.frame = CGRect(x: frame.size.width, y: 0, width: frame.size.width, height: frame.size.height)
         UIView.animate(withDuration: time, animations: {
             fromView.frame = CGRect(x: -frame.size.width, y: 0, width: frame.size.width, height: frame.size.height)
             toView.frame = frame
@@ -80,6 +80,8 @@ extension AnimateProtocol {
             fromView.layer.transform = CATransform3DIdentity
             context.completeTransition(true)
         }
+        
+        
     }
     
     func dragFromRight(_ fromView:UIView ,_ toView:UIView ,context:UIViewControllerContextTransitioning) {

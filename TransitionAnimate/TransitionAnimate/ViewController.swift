@@ -8,6 +8,16 @@
 
 import UIKit
 
+
+extension TransitionAnimateType {
+    static func count() -> NSInteger {
+        return 6
+    }
+    static func value(_ index:Int) -> String {
+        return ["scaleAlpha","fromTop","toLeft","fromTopLeftCorner","rotateXZ","dragFromRight"][index]
+    }
+}
+
 class ViewController:UITableViewController {
 
  
