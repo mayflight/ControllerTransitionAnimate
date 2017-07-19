@@ -18,6 +18,7 @@ enum TransitionAnimateType:Int {
     case dragFromRight
     case flip
     case rightIn
+    case flipOut
 }
 
 class AnimateManager:NSObject,UIViewControllerAnimatedTransitioning,UIViewControllerTransitioningDelegate,AnimateProtocol,UINavigationControllerDelegate{
@@ -30,7 +31,6 @@ class AnimateManager:NSObject,UIViewControllerAnimatedTransitioning,UIViewContro
     
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let view = transitionContext.containerView
-        
         let fromView = transitionContext.view(forKey: UITransitionContextViewKey.from)
         let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)
         if fromView == nil || toView == nil {
@@ -56,6 +56,8 @@ class AnimateManager:NSObject,UIViewControllerAnimatedTransitioning,UIViewContro
             flip(fromView!, toView!, context: transitionContext)
         case .rightIn:
             rightIn(fromView!, toView!, context: transitionContext)
+        case .flipOut:
+            flipOut(fromView!, toView!, context: transitionContext)
         }
     }
     

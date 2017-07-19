@@ -17,7 +17,9 @@ protocol AnimateProtocol {
     func dragFromRight(_ fromView:UIView ,_ toView:UIView ,context:UIViewControllerContextTransitioning)
     func flip(_ fromView:UIView ,_ toView:UIView ,context:UIViewControllerContextTransitioning)
     func rightIn(_ fromView:UIView ,_ toView:UIView ,context:UIViewControllerContextTransitioning)
+    func flipOut(_ fromView:UIView ,_ toView:UIView ,context:UIViewControllerContextTransitioning)
     var time:TimeInterval {get set}
+    
 }
 
 extension AnimateProtocol {
@@ -131,7 +133,24 @@ extension AnimateProtocol {
             fromView.frame = frame
             context.completeTransition(true)
         }
-
+    }
+    
+    func flipOut(_ fromView:UIView ,_ toView:UIView ,context:UIViewControllerContextTransitioning) {
+       let startTransform = CATransform3DMakeTranslation(-fromView.frame.size.width/2, 0, 0)
+        toView.alpha = 0.1
+        UIView.animateKeyframes(withDuration: time, delay: 0, options: .layoutSubviews, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration:0.1, animations: {
+                fromView.layer.transform = startTransform
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration:0.9, animations: {
+                fromView.layer.transform = CATransform3DRotate(startTransform, -.pi/2, 0,1,0)
+                fromView.layer.transform.m34 = -0.001
+                toView.alpha = 1
+            })
+        }) { (finished) in
+            fromView.layer.transform = CATransform3DIdentity
+            context.completeTransition(true)
+        }
     }
 }
 
