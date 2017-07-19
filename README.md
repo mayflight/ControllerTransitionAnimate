@@ -6,6 +6,9 @@ Controller or NavigationController transition Animation
 
 ![animate2](http://i1.buimg.com/595348/801dcb53cf26e77a.gif)
 
+#  转场动画分析
+请查看[博客](http://13fafa.cn/2017/06/14/UIViewController的转场动画/#more)
+
 #  一行代码使用转场动画
 在工程里面引入文件:<br>
 `AnimateProtocol.swift`<br>
@@ -26,3 +29,4 @@ self.navigationController?.delegate = manager
 ```
 
 AnimateManager 对象有两个属性animateTye用来设置动画效果类型，time用来设置动画时间
+
